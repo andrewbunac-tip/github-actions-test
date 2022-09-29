@@ -1,0 +1,16 @@
+name: Action Workflow
+
+on: [push]
+
+jobs:
+  run-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simple JS Action
+        id: greet
+        uses: actions/hellow-world-javascript-action@v1
+        with:
+          who-to-greet: Andrew
+
+      - name: Log Create Time
+        run: echo "${{ steps.greet.outputs.time}}"
