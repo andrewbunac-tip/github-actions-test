@@ -18,7 +18,6 @@ jobs:
         run: |
           pwd
           ls
-          git
 
       - name: Simple JS Action
         id: greet
