@@ -9,7 +9,16 @@ jobs:
       - name: List Files
         run: |
           pwd
+          ls -a
+
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: List Files After Checkout
+        run: |
+          pwd
           ls
+          git
 
       - name: Simple JS Action
         id: greet
