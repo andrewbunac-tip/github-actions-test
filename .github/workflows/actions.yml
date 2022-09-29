@@ -1,6 +1,6 @@
 name: Action Workflow
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   run-github-actions:
@@ -14,8 +14,8 @@ jobs:
           echo $GITHUB_REPOSITORY
           echo $GITHUB_WORKSPACE
           echo "${{ github.token }}"
-          git clone git@github:$GITHUB_REPOSITORY
-          git checkout $GITHUB_SHA
+          # git clone git@github:$GITHUB_REPOSITORY # not yet sure how to clone this
+          # git checkout $GITHUB_SHA
 
       - name: Checkout
         uses: actions/checkout@v1
