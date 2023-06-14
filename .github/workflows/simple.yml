@@ -8,7 +8,7 @@ jobs:
         run: echo "Hello World"
       - name: Multi-line Script
         run: |
-          node -v
+          node -v 
           npm -v
       - name: Python Command
         run: |
