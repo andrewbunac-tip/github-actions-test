@@ -5,5 +5,13 @@ jobs:
   test-wf-command:
     runs-on: ubuntu-latest
     steps:
-      - name: Setting and error Message
+      - name: Setting an error Message
         run: echo "::error::Missing Semicolon"
+      - name: Setting an Error Message with parameters
+        run: echo "::error title:Error title, file=app.js,line=2,endline=3,col=5,endColumn=7::MissingSemicolon"
+      - name: Setting a Debug messagewith parameters
+        run: echo "::debug title:Error title, file=app.js,line=2,endline=3,col=5,endColumn=7::MissingSemicolon"
+      - name: Setting an Error Message with parameters
+        run: echo "::error title:Error title, file=app.js,line=2,endline=3,col=5,endColumn=7::MissingSemicolon"
+      - name: Setting an Error Message with parameters
+        run: echo "::error title:Error title, file=app.js,line=2,endline=3,col=5,endColumn=7::MissingSemicolon"
