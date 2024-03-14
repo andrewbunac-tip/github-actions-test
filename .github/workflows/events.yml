@@ -1,12 +1,5 @@
 name: Repository Events
-on: 
-  push:
-    branches:
-      - '**'
-  pull_request:
-    types: [opened, synchronize, reopened]
-  issues: 
-    types: [opened]
+on: [push, pull_request]
 
 jobs:
   checkout-test:
