@@ -40,8 +40,9 @@ jobs:
         steps:
             - run: echo $GITHUB_REF
             - run: echo $GITHUB_SHA
-            - run: "String Input: ${{ inputs.string }}"
-            - run: "Number Input: ${{ inputs.number }}"
-            - run: "Option Input: ${{ inputs.option }}"
-            - run: "Boolean Input: ${{ inputs.boolean }}"
-            - run: "Environment Input: ${{ inputs.environment }}"
+            - run: echo "String Input: ${{ github.event.inputs.string }}"
+            - run: echo "Number Input: ${{ github.event.inputs.number }}"
+            - run: echo "Option Input: ${{ github.event.inputs.option }}"
+            - run: echo "Boolean Input: ${{ github.event.inputs.boolean }}"
+            - run: echo "Environment Input: ${{ github.event.inputs.environment }}"
+
