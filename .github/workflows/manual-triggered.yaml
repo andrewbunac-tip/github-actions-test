@@ -7,6 +7,32 @@ on:
                 type: string
                 required: true
                 default: "Deafult Val"
+            number:
+                description: A Number Input
+                type: number
+                required: true
+                default: 1
+            otption:
+                description: A Option Input
+                type: choice
+                required: true
+                options:
+                    - "Option 1"
+                    - "Option 2"
+                    - "Option 3"
+                    - "Option 4"
+                default: "Option 1"
+            boolean:
+                description: A Boolean Input
+                type: boolean
+                required: true
+                default: true
+            environment:
+                description: A Environment Input
+                type: environment
+                required: true
+                default: "ENVIRONMENT"
+            
 
 jobs:
     log-info:
@@ -14,3 +40,9 @@ jobs:
         steps:
             - run: echo $GITHUB_REF
             - run: echo $GITHUB_SHA
+            - run: "String Input: ${{ github.event.inputs.string }}"
+            - run: "Number Input: ${{ github.event.inputs.number }}"
+            - run: "Option Input: ${{ github.event.inputs.option }}"
+            - run: "Boolean Input: ${{ github.event.inputs.boolean }}"
+            - run: "Environment Input: ${{ github.event.inputs.environment }}"
+            
