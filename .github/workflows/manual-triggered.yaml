@@ -6,7 +6,7 @@ on:
                 description: A String Input
                 type: string
                 required: true
-                default: "Deafult Val"
+                default: "Default Val"
             number:
                 description: A Number Input
                 type: number
@@ -40,9 +40,8 @@ jobs:
         steps:
             - run: echo $GITHUB_REF
             - run: echo $GITHUB_SHA
-            - run: "String Input: ${{ github.event.inputs.string }}"
-            - run: "Number Input: ${{ github.event.inputs.number }}"
-            - run: "Option Input: ${{ github.event.inputs.option }}"
-            - run: "Boolean Input: ${{ github.event.inputs.boolean }}"
-            - run: "Environment Input: ${{ github.event.inputs.environment }}"
-            
+            - run: "String Input: ${{ inputs.string }}"
+            - run: "Number Input: ${{ inputs.number }}"
+            - run: "Option Input: ${{ inputs.option }}"
+            - run: "Boolean Input: ${{ inputs.boolean }}"
+            - run: "Environment Input: ${{ inputs.environment }}"
