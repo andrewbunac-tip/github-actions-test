@@ -1,6 +1,8 @@
 name: Repository Events
 on: 
   push:
+    branches:
+      - '**'
   pull_request:
     types: [opened, synchronize, reopened]
   issues: 
