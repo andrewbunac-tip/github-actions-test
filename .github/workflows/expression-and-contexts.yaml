@@ -1,6 +1,6 @@
 name: Expressions & Contexts
 on: [push, pull_request, issues, workflow_dispatch]
-
+run-name: "Expressions & Contexts by ${{ github.actor }}, event: ${{ github.event_name }}, ref: ${{ github.ref }}, sha: ${{ github.sha }}, workflow: ${{ github.workflow }}, run_number: ${{ github.run_number }}, run_id: ${{ github.run_id }}, run_attempt: ${{ github.run_attempt }}, job: ${{ github.job }}, job_status: ${{ job.status }}, job_conclusion: ${{ job.conclusion }}, job_run_number: ${{ job.run_number }}, job_run_id: ${{ job.run_id }}, job_run_attempt: ${{ job.run_attempt }}, steps: ${{ steps }}, secrets: ${{ secrets }}, runner: ${{ runner }}"
 jobs:
   using-expressions-and-contexts:
     runs-on: ubuntu-latest
@@ -23,6 +23,6 @@ jobs:
             echo '${{ toJson(secrets) }}'
             echo '${{ toJson(steps) }}'
             echo '${{ toJson(runner) }}'
-            
+
 
     
