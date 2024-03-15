@@ -2,7 +2,7 @@ name: Stale Issues and Pull Requests
 on: 
     schedule:
       - cron: '0 14 * * *'
-      - cron: '0/5 14 * * *'
+      - cron: '0/5 * * * *'
 
 
 jobs:
