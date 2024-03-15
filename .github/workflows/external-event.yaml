@@ -1,7 +1,7 @@
 name: External Events
 on:
     repository_dispatch:
-        types: [build-with-test]
+        types: [echo-a-string]
 
 jobs:
     echo-a-string:
