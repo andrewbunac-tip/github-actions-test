@@ -10,14 +10,12 @@ jobs:
         - name: Step 2
           id: step-2
           run: exit 1
-
-        - name: Runs on Failure
+        - name: Runs on Failure Sptep 2
           if: failure() && steps.step-2.conclusion == 'failuire'
           run: echo 'Step 2 has failed'
         - name: Runs on Failure
           if: failure()
           run: echo 'Runs only on Failuire'
-        
         # this is not needed(Default Behaviour)
         - name: Runs on Success
           if: success()
