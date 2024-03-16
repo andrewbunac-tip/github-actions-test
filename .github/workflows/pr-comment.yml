@@ -1,4 +1,4 @@
-# 31. The GITHUB_TOKEN Secret & Customizing its Permissions (1)
+# 31. The GITHUB_TOKEN Secret & Customizing its Permissions (2)
 name: Pull Reuqest Comment
 on:
   pull_request_target: 
@@ -8,7 +8,7 @@ jobs:
     pr-Comment:
         runs-on: ubuntu-latest
         permissions: 
-          issues: read
+          issues: write
         steps:
             - name: Comment on New PR
               uses: actions/github-script@v6
