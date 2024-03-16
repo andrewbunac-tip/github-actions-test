@@ -1,4 +1,4 @@
-# 27. Default & Custom Environment Variables (2)
+# 28. Settings Environment Variables During the Execution of a Workflow (1)
 name: Environment Variables
 on: [push]
 
@@ -14,9 +14,13 @@ jobs:
         steps: 
             - name: Log ENV VAR
               run: echo $GITHUB_REF
-              
             - name: Log Context
               run: echo '${{ github.ref }}'
+            - name: set Env Var
+              run: |
+                echo "NEW_ENV_VAR=$(date)" >> "$GITHUB_ENV"
+                echo "JOB_LEVEL_ENV=$RANDOM" >> "$GITHUB_ENV"
+
             - name: Log WF ENV VAR
               run: echo $WF_LEVEL_ENV
             - name: Log JL ENV VAR
