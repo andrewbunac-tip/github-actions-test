@@ -7,8 +7,8 @@ env:
 jobs:
     env-vars-and-context:
         runs-on: ubuntu-latest
-        # if: $GITHUB_REF == 'refs/heads/main' This will not work because the GITHUB_REF is not available at the time of the job creation
-        if: github.ref == 'refs/heads/main'
+        # if: $GITHUB_REF == 'refs/heads/master' This will not work because the GITHUB_REF is not available at the time of the job creation
+        if: github.ref == 'refs/heads/master'
         env:
             JOB_LEVEL_ENV: "Available to all steps in env-vars-and-context job" # JL - Job Level
         steps: 
