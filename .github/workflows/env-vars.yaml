@@ -1,12 +1,32 @@
+# 27. Default & Custom Environment Variables (2)
 name: Environment Variables
 on: [push]
 
+env:
+    WF_LEVEL_ENV: "Available to all jobs" # WF - Workflow Level
 jobs:
     env-vars-and-context:
         runs-on: ubuntu-latest
+        # if: $GITHUB_REF == 'refs/heads/main' This will not work because the GITHUB_REF is not available at the time of the job creation
+        if: github.ref == 'refs/heads/main'
+        env:
+            JOB_LEVEL_ENV: "Available to all steps in env-vars-and-context job" # JL - Job Level
         steps: 
             - name: Log ENV VAR
               run: echo $GITHUB_REF
               
             - name: Log Context
               run: echo '${{ github.ref }}'
+            - name: Log WF ENV VAR
+              run: echo $WF_LEVEL_ENV
+            - name: Log JL ENV VAR
+              run: echo $JOB_LEVEL_ENV
+            - name: Log Custom Env Vars
+              env: 
+                STEP_LEVEL_ENV: "Available to only this step"
+                WL_LEVEL_ENV: "Overriden in step"
+              run: |
+                echo '${{ env.STEP_LEVEL_ENV}}'
+                echo $STEP_LEVEL_ENV
+                echo $WL_LEVEL_ENV
+                echo $JOB_LEVEL_ENV
