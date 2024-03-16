@@ -26,3 +26,7 @@ curl -L \
   -d '{"event_type":"build","client_payload":{"env":"production"}}'
   
   
+### Random Joke
+  curl -L \
+    -H "Accept: application/json" \
+    https://icanhazdadjoke.com/
