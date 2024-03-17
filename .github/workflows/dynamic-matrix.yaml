@@ -1,4 +1,4 @@
-# 36. Step and Job OUtput & Dynamic Matrices (1)
+# 36. Step and Job OUtput & Dynamic Matrices (2)
 name: Dynamic Matrix
 on:
   workflow_dispatch:
@@ -20,9 +20,9 @@ jobs:
     prepare-matrix:
       runs-on: ubuntu-latest
       steps:
-        - run: echo "step-output=value" >> $GITHUB_OUTPUT`
+        - run: echo "step-output=value" >> $GITHUB_OUTPUT
           id: step-1
-        - run: echo "step-output=value 2" >> $GITHUB_OUTPUT`
+        - run: echo "step-output=value 2" >> $GITHUB_OUTPUT
           id: step-2
         - run: |
             echo '${{ steps.step-1.outputs.step-output }}'
