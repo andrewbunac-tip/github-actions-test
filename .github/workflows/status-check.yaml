@@ -1,3 +1,4 @@
+# 32. Timeout Minutes & Continue on Error
 name: Status check Functions
 on: [push]
 
@@ -13,6 +14,9 @@ jobs:
         - name: Runs on Failure Sptep 2
           if: failure() && steps.step-2.conclusion == 'failure'
           run: echo 'Step 2 has failed'
+        - name: Runs on Failure Sptep 2
+          if: failure() 
+          run: echo 'Failuire'
         - name: Runs on Failure
           if: failure()
           run: echo 'Runs only on Failuire ${{ steps.step-2.conclusion }}'
