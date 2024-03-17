@@ -1,4 +1,4 @@
-# 35. Handling Failing Jobs in a Matrix (1)
+# 35. Handling Failing Jobs in a Matrix (2)
 name: Matrix
 on: [push]
 
@@ -25,7 +25,7 @@ on: [push]
 
 jobs:
     node-matrix:
-        continue-on-error: false
+        continue-on-error: ${{ matrix.experimental == true }}
         strategy:
             matrix:
                 os: [ubuntu-latest, windows-latest]
