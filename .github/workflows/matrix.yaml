@@ -1,4 +1,4 @@
-# 34. Including and Excluding Matrix Configuration (1)
+# 35. Handling Failing Jobs in a Matrix (1)
 name: Matrix
 on: [push]
 
@@ -11,8 +11,6 @@ on: [push]
 # { Y os: windows-latest, node-version: 15}
 # { Y os: windows-latest, node-version: 16}
 
-
-
 # Altered Combinations
 # { X os: ubuntu-latest,  node-version: 14, is-ubuntu: true, experimental: false}
 # { Y os: ubuntu-latest,  node-version: 15, is-ubuntu: true, experimental: false}
@@ -20,7 +18,6 @@ on: [push]
 # { X os: windows-latest, node-version: 14,                  experimental: false}
 # { Y os: windows-latest, node-version: 15,                  experimental: false}
 # { Y os: windows-latest, node-version: 16,                  experimental: false}
-
 
 # Added Cobminations
 # { Y os: macos-latest ,  node-version: 15}
@@ -47,10 +44,12 @@ jobs:
                 exclude:
                   - os: ubuntu-latest
                     node-version: 14
-            fail-fast: false
+            fail-fast: true
             # max-parallel: 3
         runs-on: ${{ matrix.os }}
         steps:
+            - if: matrix.experimental == true
+              run: exit 1
             - run: node -v
             - run: echo '${{ toJson(matrix) }}'
             - uses: actions/setup-node@v3
