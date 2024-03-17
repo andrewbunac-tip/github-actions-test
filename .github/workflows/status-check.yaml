@@ -1,4 +1,4 @@
-# 32. Timeout Minutes & Continue on Error
+# 32. Timeout Minutes & Continue on Error (2)
 name: Status check Functions
 on: [push]
 
@@ -10,6 +10,7 @@ jobs:
           run: sleep 20
         - name: Step 2
           id: step-2
+          continue-on-error: true
           run: exit 1
         - name: Runs on Failure Sptep 2
           if: failure() && steps.step-2.conclusion == 'failure'
