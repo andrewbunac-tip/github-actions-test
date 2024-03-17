@@ -1,4 +1,4 @@
-# 36. Step and Job OUtput & Dynamic Matrices (5)
+# 36. Step and Job OUtput & Dynamic Matrices (6)
 name: Dynamic Matrix
 on:
   workflow_dispatch:
