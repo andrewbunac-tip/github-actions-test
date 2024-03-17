@@ -1,4 +1,4 @@
-# 32. Timeout Minutes & Continue on Error (2)
+# 32. Timeout Minutes & Continue on Error (3)
 name: Status check Functions
 on: [push]
 
@@ -7,7 +7,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - name: Step 1
-          run: sleep 20
+          timeout-minutes: 1
+          run: sleep 90
         - name: Step 2
           id: step-2
           continue-on-error: true
