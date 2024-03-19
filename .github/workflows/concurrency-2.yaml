@@ -1,4 +1,6 @@
+# 37. Running a single job or Workflow at a Time Using Concurrency (6)
 name: concurrency 2
+run-name: Concurrency 2 (${{ github.event.inputs.environment }})
 on:
     workflow_dispatch:
         inputs:
@@ -6,7 +8,10 @@ on:
                 description: 'Environment to deploy to'
                 required: true
                 type: environment
-concurrency: concurrency-2
+concurrency: 
+    group: ${{ github.event.inputs.environment }}
+    cancel-in-progress: true
+
 jobs:
     sleep:
         runs-on: ubuntu-latest
