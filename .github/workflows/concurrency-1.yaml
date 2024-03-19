@@ -1,4 +1,4 @@
-# 37. Running a single job or Workflow at a Time Using Concurrency (2)
+# 37. Running a single job or Workflow at a Time Using Concurrency (3)
 name: concurrency 1
 on:
     workflow_dispatch:
@@ -7,7 +7,10 @@ on:
                 description: 'Environment to deploy to'
                 required: true
                 type: environment
-concurrency: concurrency-1
+concurrency: 
+    group: concurrency-1
+    cancel-in-progress: true
+
 jobs:
     sleep:
         runs-on: ubuntu-latest
