@@ -1,4 +1,4 @@
-# 37. Running a single job or Workflow at a Time Using Concurrency (4)
+# 37. Running a single job or Workflow at a Time Using Concurrency (7)
 name: concurrency 1
 run-name: Concurrency 1 (${{ github.event.inputs.environment }})
 on:
@@ -9,7 +9,7 @@ on:
                 required: true
                 type: environment
 concurrency: 
-    group: ${{ github.event.inputs.environment }}
+    group: ${{github.workflow }}-${{ github.event.inputs.environment }}
     cancel-in-progress: true
 
 jobs:
