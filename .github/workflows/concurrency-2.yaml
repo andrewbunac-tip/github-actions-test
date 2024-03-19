@@ -6,7 +6,7 @@ on:
                 description: 'Environment to deploy to'
                 required: true
                 type: environment
-
+concurrency: concurrency-2
 jobs:
     sleep:
         runs-on: ubuntu-latest
