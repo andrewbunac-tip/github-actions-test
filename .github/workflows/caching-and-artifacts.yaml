@@ -1,3 +1,4 @@
+# 41. Caching Files in Github Actions
 name: Caching and Artifacts
 on: [workflow_dispatch]
 
@@ -6,6 +7,15 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
+            - name: Cache node modules
+              id: cache-dependencies
+              uses: actions/cache@v2
+              with:
+                  path: ~/.npm
+                  key: "npm-cache"
+            - name: Display Cache output
+              run: echo '${{ toJson(steps.cache-dependencies.outputs)}}'  
+
             - name: Install Dependencies
               run: npm install
             - name: Use Axios
@@ -19,4 +29,4 @@ jobs:
                             }
                         });
                         console.log(res.data);
-
+                
